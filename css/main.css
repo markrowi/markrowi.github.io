@@ -3,7 +3,7 @@
 }
 
 .name {
-	
+	margin-top:0;
 	font-size:150px;
 	color: white;
 	text-shadow: 0 1px 0 #ccc,
@@ -21,7 +21,15 @@
 				   
 	
 }
+.avatar {
+	margin-top:70px;
+}
+.avatar img{
 
+	border-radius: 50%;
+	width: 15%;
+
+}
 
 
 body {
@@ -36,5 +44,8 @@ body {
 @media (max-width: 768px) {
 	.name {
 		font-size:70px;
+	}
+	.avatar img{
+		width:50%;
 	}
 }
