@@ -9,14 +9,14 @@ $(function(){
     canvas.height = window.innerHeight;
     ctx.lineWidth = .3;
     ctx.strokeStyle = (new Color(150)).style;
-  
+    
     var mousePosition = {
       x: 30 * canvas.width / 100,
       y: 30 * canvas.height / 100
     };
-  
+    console.log(canvas.width)
     var dots = {
-      nb: 350,
+      nb: (canvas.width>600?350:100),
       distance: 100,
       d_radius: 150,
       array: []
@@ -62,7 +62,7 @@ $(function(){
       this.radius = Math.random() * 3;
   
       this.color = new Color();
-      console.log(this);
+    //   console.log(this);
     }
   
     Dot.prototype = {
