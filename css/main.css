@@ -22,7 +22,7 @@
 	
 }
 .avatar {
-	margin-top:70px;
+	padding-top:70px;
 }
 .avatar img{
 
@@ -49,3 +49,12 @@ body {
 		width:50%;
 	}
 }
+
+html, body {
+	background: #000;
+	margin: 0;
+  }
+  
+  canvas {
+	position: absolute;
+  }
