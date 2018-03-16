@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>markrowi</title>
+    <link rel="icon" href="http://archer.gamebanana.com/img/ico/sprays/fire_red_animated.gif" type="image/x-icon">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="fonts/Montserrat-Medium/styles.css">
+
+</head>
+	<body>
+		<header></header>
+		<section>
+			<canvas id="dots"></canvas>
+			<article class="name-section">
+			<div class="avatar circle"><img src="images/Gurbubrej.png"/></div>
+				<h1 class="name">markrowi</h1>
+			</article>
+		</section>
+		<footer>
+			
+			<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="js/main.js"></script>
+		</footer>
+	</body>
+</html>
