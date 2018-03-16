@@ -2,6 +2,15 @@
 	text-align: center;
 }
 
+
+.press-start-2p {
+	font-family: 'Press Start 2P', cursive;
+}
+
+.source-code-pro {
+	font-family: 'Source Code Pro', monospace;
+}
+
 .name {
 	margin-top:0;
 	font-size:150px;
@@ -21,9 +30,61 @@
 				   
 	
 }
-.avatar {
-	padding-top:70px;
+.desc {
+	color:#FFFFFF;
 }
+.name-2 {
+	margin-top:20px;
+	margin-bottom: 10px;
+	font-size: 6vw;
+
+	color: white;
+	color: #e23b4a;
+    background: -webkit-linear-gradient(330deg, #23966c 0%, #faaa54 25%, #e23b4a 50%, #db0768 75%, #360670 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.-color-orange {
+    color: #f49151;
+}
+.-color-pink {
+	color: #dd1b5c;
+}
+
+.avatar {
+	margin-top:70px;
+}
+
+.avatar.-circle {
+	display: block;
+	/* background-color: white; */
+	background-image: url(../images/me.jpg);
+    background-position: center;
+	background-size: cover;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	margin: 70px auto 40px;
+	position: relative;
+	overflow: hidden;
+}
+
+.avatar.-circle::after {
+	content: "";
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+	background-color: #dd1b5c;
+	background: -webkit-linear-gradient(330deg, #23966c 0%, #faaa54 25%, #e23b4a 50%, #db0768 75%, #360670 100%);
+	
+	position: absolute;
+    left: 0;
+}
+
 .avatar img{
 
 	border-radius: 50%;
@@ -33,8 +94,6 @@
 
 
 body {
-	
-
 	
 	background-color: #005bbb;
 	font-family: Montserrat;
@@ -51,12 +110,22 @@ body {
 }
 
 html, body {
-	background: #000;
+	background: #20203d;
 	margin: 0;
   }
   
   canvas {
 	position: absolute;
 	width:100%;
-	height: 100%
+	height: 100%;
+	/* z-index:-1; */
+	top: 0;
+	left: 0;
+  }
+
+
+  .content {
+	  z-index: 100;
+	  position: absolute;
+	  width: 100%;
   }

@@ -1,18 +1,15 @@
+
 //Forked from http://andreasstorm.com/
 //Made by Bogden
 
 //CANVAS
 $(function(){
-    var canvas = document.querySelector('#dots'),
+    var canvas = document.querySelector('canvas'),
         ctx = canvas.getContext('2d')
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    $(window).resize(function(){
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    })
     ctx.lineWidth = .3;
-    ctx.strokeStyle = (new Color(100)).style;
+    ctx.strokeStyle = (new Color(150)).style;
     
     var mousePosition = {
       x: 30 * canvas.width / 100,
@@ -20,8 +17,8 @@ $(function(){
     };
     console.log(canvas.width)
     var dots = {
-      nb: (canvas.width>600?150:100),
-      distance: 80,
+      nb: (canvas.width>600?350:100),
+      distance: 100,
       d_radius: 150,
       array: []
     };
@@ -31,7 +28,7 @@ $(function(){
     }
     
     function createColorStyle(r,g,b) {
-      return 'rgba(' + r + ',' + g + ',' + b + ', 0.1)';
+      return 'rgba(' + r + ',' + g + ',' + b + ', 0.8)';
     }
     
     function mixComponents(comp1, weight1, comp2, weight2) {
@@ -53,10 +50,6 @@ $(function(){
       this.r = colorValue(min);
       this.g = colorValue(min);
       this.b = colorValue(min);
-
-      this.r = 250;
-      this.g = 170;
-      this.b = 84;
       this.style = createColorStyle(this.r, this.g, this.b);
     }
   
