@@ -1,5 +1,64 @@
-//Forked from http://andreasstorm.com/
-//Made by Bogden
+
+
+(()=>{
+  // transform: translate(5%, 5%); */
+  //   transition: ease .5s all;
+  let content = document.querySelector('.content')
+  let name = document.querySelector('.name-2');
+  let dots = document.querySelector('#dots');
+  let avatar = document.querySelector('.avatar')
+  let description = document.querySelector('.description')
+  let { innerHeight, innerWidth } = window;
+
+
+  document.onmousemove = (e)=> {
+    let { pageY, pageX } = e;
+    let halfX = (innerWidth / 2)
+    let halfY = (innerHeight / 2)
+    let moveX = distance => (pageX - halfX) / distance;
+
+    avatar.style.transform = `translate(${-(moveX(300))}%, ${-(pageY) / (innerHeight)}%)`
+    content.style.transform = `translate(${-(moveX(320))}%, ${-(pageY) / (innerHeight)}%)`
+    // content.style.transform = `translate(${-(pageX)/ (innerWidth)}%, ${-(pageY) / (innerHeight)}%)`
+    dots.style.transform = `translate(${moveX(300)}%, ${(pageY) / (innerHeight)}%)`
+  }
+
+  avatar.onclick = () =>{
+    $(avatar).addClass('hide')
+      $(name).addClass('small')
+      $(description).addClass('hide')
+  }
+
+  const myHandler = (event) => {
+    if(event.deltaY > 0 ){
+      $(avatar).addClass('hide')
+      $(name).addClass('small')
+      $(description).addClass('hide')
+    }else{
+      $(avatar).removeClass('hide')
+      $(name).removeClass('small')
+      $(description).removeClass('hide')
+    }
+    
+  }// do something with the event
+  const tHandler = throttled(1000, myHandler);
+
+  document.addEventListener("mousewheel", tHandler);
+
+})()
+
+
+function throttled(delay, fn) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
+}
 
 //CANVAS
 $(function(){
@@ -142,9 +201,9 @@ $(function(){
       requestAnimationFrame(animateDots);	
     }
   
-    $('canvas').on('mousemove', function(e){
-      mousePosition.x = e.pageX;
-      mousePosition.y = e.pageY;
+    $(document).on('mousemove', function(e){
+      mousePosition.x = e.clientX;
+      mousePosition.y = e.clientY;
     });
   
     $('canvas').on('mouseleave', function(e){
