@@ -23,7 +23,10 @@
     dots.style.transform = `translate(${moveX(300)}%, ${(pageY) / (innerHeight)}%)`
   }
 
+
+
   avatar.onclick = () =>{
+    window.gtag('event','click',{'event_category':'click','event_label':'Avatar Clicked' })
     $(avatar).addClass('hide')
       $(name).addClass('small')
       $(description).addClass('hide')
@@ -34,17 +37,29 @@
       $(avatar).addClass('hide')
       $(name).addClass('small')
       $(description).addClass('hide')
+      window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Bottom' })
     }else{
       $(avatar).removeClass('hide')
       $(name).removeClass('small')
       $(description).removeClass('hide')
+      window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Top' })
     }
     
   }// do something with the event
   const tHandler = throttled(1000, myHandler);
 
   document.addEventListener("mousewheel", tHandler);
+  // window.addEventListener("devicemotion", ({accelerationIncludingGravity})=>{ 
+  //   content.style.transform = `translate(${-(accelerationIncludingGravity.x)}%, ${-(accelerationIncludingGravity.y)}%)`
+  //   dots.style.transform = `translate(${accelerationIncludingGravity}%, ${accelerationIncludingGravity.y}%)`
+  // }, true);
 
+  document.querySelectorAll('.social-media>a')
+    .forEach((a)=>{ 
+        a.onclick = (e)=>{
+            window.gtag('event','click',{'event_category':'click','event_label':'Link to ' + a.href });
+        } 
+    })
 })()
 
 
