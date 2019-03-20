@@ -49,3 +49,28 @@ html, body {
     opacity: 1;
     font-size: 25px;
 }
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    opacity: .5;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    opacity: .5;
+    border-radius: 2px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    opacity: .5;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    opacity: .5;
+  }

@@ -9,6 +9,8 @@
   let avatar = document.querySelector('.avatar')
   let goDown = document.querySelector('.go-down')
   let goUp = document.querySelector('.go-up')
+  let projectSec = document.querySelector('.section.-projects')
+  let homeSec = document.querySelector('.section.-home')
   let description = document.querySelector('.description')
   let { innerHeight, innerWidth } = window;
 
@@ -31,26 +33,35 @@
     window.gtag('event','click',{'event_category':'click','event_label':'Avatar Clicked' })
 
     $(content).attr('data-display', 'projects')
+    setTimeout(()=>{
+        $(projectSec).css('height', `calc(100vh - ${$(homeSec).height()}px)`)
+    },800)
   }
   goUp.onclick = () =>{
     window.gtag('event','click',{'event_category':'click','event_label':'Avatar Clicked' })
-
+    
     $(content).attr('data-display', 'home')
+    setTimeout(()=>{
+        $(projectSec).css('height', `0px`)
+    },800)
+    
   }
 
 
   const myHandler = (event) => {
-    if(event.deltaY > 0 ){
-        $(content).attr('data-display', 'projects')
-      window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Bottom' })
-    }else{
-        $(content).attr('data-display', 'home')
-      window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Top' })
-    }
+    // if(event.deltaY > 0 ){
+    //     $(content).attr('data-display', 'projects')
+    //   window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Bottom' })
+    // }else{
+    //     $(content).attr('data-display', 'home')
+    //   window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Top' })
+    // }
+    console.log('resize')
+    $(projectSec).css('height', `calc(100vh - ${$(homeSec).height()}px)`)
     
   }// do something with the event
   const tHandler = throttled(1000, myHandler);
-
+    $(window).resize(tHandler) 
 //   document.addEventListener("mousewheel", tHandler);
  
 

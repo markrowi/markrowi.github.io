@@ -3,6 +3,7 @@
     text-align: center;
     /* z-index: ; */
     height: 100%;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) all .3s;
 }
 
 .go-up {
