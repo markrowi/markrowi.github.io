@@ -7,6 +7,8 @@
   let name = document.querySelector('.name-2');
   let dots = document.querySelector('#dots');
   let avatar = document.querySelector('.avatar')
+  let goDown = document.querySelector('.go-down')
+  let goUp = document.querySelector('.go-up')
   let description = document.querySelector('.description')
   let { innerHeight, innerWidth } = window;
 
@@ -25,34 +27,32 @@
 
 
 
-  avatar.onclick = () =>{
+  goDown.onclick = () =>{
     window.gtag('event','click',{'event_category':'click','event_label':'Avatar Clicked' })
-    $(avatar).addClass('hide')
-      $(name).addClass('small')
-      $(description).addClass('hide')
+
+    $(content).attr('data-display', 'projects')
   }
+  goUp.onclick = () =>{
+    window.gtag('event','click',{'event_category':'click','event_label':'Avatar Clicked' })
+
+    $(content).attr('data-display', 'home')
+  }
+
 
   const myHandler = (event) => {
     if(event.deltaY > 0 ){
-      $(avatar).addClass('hide')
-      $(name).addClass('small')
-      $(description).addClass('hide')
+        $(content).attr('data-display', 'projects')
       window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Bottom' })
     }else{
-      $(avatar).removeClass('hide')
-      $(name).removeClass('small')
-      $(description).removeClass('hide')
+        $(content).attr('data-display', 'home')
       window.gtag('event','scrolled',{'event_category':'scrolled','event_label':'Page Scrolled to Top' })
     }
     
   }// do something with the event
   const tHandler = throttled(1000, myHandler);
 
-  document.addEventListener("mousewheel", tHandler);
-  // window.addEventListener("devicemotion", ({accelerationIncludingGravity})=>{ 
-  //   content.style.transform = `translate(${-(accelerationIncludingGravity.x)}%, ${-(accelerationIncludingGravity.y)}%)`
-  //   dots.style.transform = `translate(${accelerationIncludingGravity}%, ${accelerationIncludingGravity.y}%)`
-  // }, true);
+//   document.addEventListener("mousewheel", tHandler);
+ 
 
   document.querySelectorAll('.social-media>a')
     .forEach((a)=>{ 
